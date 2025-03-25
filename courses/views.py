@@ -8,5 +8,5 @@ def course_detail(request,course_id):
 
 def course_list(request):
     courses = Course.objects.all()
-    return render(request,'courses/course_list.html',{'course':courses})
+    return render(request,'courses/course_list.html',{'courses':courses})
 
