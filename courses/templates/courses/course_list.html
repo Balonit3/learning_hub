@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1>Все курсы</h1>
+<ul>
+    {% for course in courses %}
+    <li>
+        <h3>{{ course.title }}</h3>
+        <p>Категория: {{ course.category.name|default:"Без категории"}}</p>
+    <p>Учитель :{{ course.teacher.username}}</p>
+    </li>
+    {% endfor %}
+</ul>
+</html>
