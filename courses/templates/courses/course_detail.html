@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.title }}</title>
+</head>
+<body>
+    <h1>{{ course.title }}</h1>
+    <div>
+        <p>Категории:{{ course.category.name|default:"Без категории" }}</p>
+        <p>Учитель:{{ course.teacher.username }}</p>
+        <p>Описание:{{ course.description }}</p>
+    </div>
+    <h2>Уроки:</h2>
+    <ul>
+        {{% for lesson in lessons %}}
+        <li>
+            <h3>{{ lesson.title }}</h3>
+            <p>{{ lesson.content|trancateword:30 }}</p>
+            {% if lesson.created_at %}
+            <small>Дата создания: {{ lesson.created_at|date:"d.m.Y" }} </small>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>Пока нет уроков в этом курсе</li>
+    {% endif %}
+    </ul>
+    <p><a href="{% url 'course_list' %}">Вернуться к списку курсов</a></p>
+</body>
+</html>

@@ -36,8 +36,9 @@ class Course(models.Model):
 class Lesson(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE, verbose_name='курс')
     title = models.CharField(max_length=100, verbose_name='название')
-    description = models.TextField(verbose_name='описание')
+    content = models.TextField(verbose_name='описание')
     order = models.PositiveIntegerField(verbose_name='порядок уроков')
+    created_at = models.DateTimeField(auto_now_add=True,verbose_name='Дата создания')
     def __str__(self):
         return self.title
     class Meta:

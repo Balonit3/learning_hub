@@ -10,9 +10,9 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ('title','description')
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ('title','description','order')
-    list_display_links = ('title','description')
-    search_fields = ('title','description')
+    list_display = ('title','content','order')
+    list_display_links = ('title','content')
+    search_fields = ('title','content')
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title','description')

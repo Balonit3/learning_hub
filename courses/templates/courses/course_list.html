@@ -4,7 +4,9 @@
 <ul>
     {% for course in courses %}
     <li>
-        <h3>{{ course.title }}</h3>
+        <h3>
+            <a href="/courses/{{ course.id }}/">{{ course.title }}</a>
+        </h3>
         <p>Категория: {{ course.category.name|default:"Без категории"}}</p>
     <p>Учитель :{{ course.teacher.username}}</p>
     </li>
